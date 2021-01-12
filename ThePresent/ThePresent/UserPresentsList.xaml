@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ThePresent.UserPresentsList">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry BackgroundColor="White" Placeholder="Search in friends" VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand" TextColor="Black" />
+
+            <ListView x:Name="presentsView" ItemsSource="{Binding Presents}" BackgroundColor="#800000" RowHeight="110">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="10,0,10,0" BackgroundColor="#800000" HorizontalOptions="FillAndExpand">
+                                <Entry Text="{Binding Name}" VerticalTextAlignment="Center" FontSize="Large" TextColor="White" />
+                                <StackLayout Orientation="Horizontal" BackgroundColor="#800000" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                    <Label Text="{Binding DaysLeft}" VerticalTextAlignment="Start" FontSize="Small" TextColor="White" HorizontalTextAlignment="Start" HorizontalOptions="Start" />
+                                    <Label Text="{Binding PresentDate, StringFormat='{0:dd MMMM yyyy}'}" VerticalTextAlignment="End" FontSize="Small" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" />
+
+                                </StackLayout>
+                                <Label Text="{Binding SelectedPresent}" VerticalTextAlignment="Center"
+                                       FontSize="Medium" TextColor="White" />
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

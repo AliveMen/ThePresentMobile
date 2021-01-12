@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="WorkingWithListview.CustomCellXaml" 
+             Padding="0, 20, 0, 0" 
+             BackgroundColor="#800000"
+             Title="Friends list">
+    <StackLayout BackgroundColor="#800000">
+
+        <Entry BackgroundColor="White" Placeholder="Search in friends" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="Black" ></Entry>
+
+        <ListView x:Name="friendsView" ItemSelected="OnItemSelected" ItemsSource="{Binding Friends}" BackgroundColor="#800000" RowHeight="110">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#800000" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal" Margin="20,10,0,10">
+                            <Frame CornerRadius="30"  HeightRequest="15" WidthRequest="15" BorderColor="Black" VerticalOptions="Center" BackgroundColor="Aqua">
+                                <Label Text="{Binding FirstLetter}" FontSize="Large" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Brown"></Label>
+                            </Frame>
+                            <StackLayout Orientation="Vertical" Padding="10,0,10,0" BackgroundColor="#800000" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Name}" VerticalTextAlignment="Center" FontSize="Large" TextColor="White"/>
+                                <StackLayout Orientation="Horizontal" BackgroundColor="#800000" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                    <Label Text="{Binding DaysLeft}" VerticalTextAlignment="Start" FontSize="Small" TextColor="White" HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding PresentDate, StringFormat='{0:dd MMMM yyyy}'}" VerticalTextAlignment="End" FontSize="Small" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand"/>
+                                    
+                                </StackLayout>
+                                <Label Text="{Binding SelectedPresent}" VerticalTextAlignment="Center" FontSize="Medium" TextColor="White"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

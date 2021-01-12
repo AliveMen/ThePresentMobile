@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ThePresent.FriendDetail.FriendDetailPage"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#800000" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+            <StackLayout>
+            <Label Text="{Binding Name}" FontSize="Large" TextColor="White" Padding="30,10,10,10"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Подарок" FontSize="Default" TextColor="White" BackgroundColor="Black" Padding="30,10,10,10" HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                <Label Text="{Binding SelectedPresent}" FontSize="Large" TextColor="White" Padding="30,10,10,10" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <Image x:Name="backgroundImage" Source="https://images-na.ssl-images-amazon.com/images/I/71Rl8Rfd8vL._AC_SL1500_.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Когда дарить" FontSize="Default" TextColor="White" BackgroundColor="Black" Padding="30,10,10,10" HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+                <Label Text="{Binding PresentDate, StringFormat='{0:dd MMMM yyyy}'}" FontSize="Large" TextColor="White" Padding="30,10,10,10" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <Label Text="Описание подарка" FontSize="Default" TextColor="White" BackgroundColor="Black" Padding="30,10,10,10" HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+            <Editor PlaceholderColor="White" Text="{Binding Description}" Placeholder="Здесь должно быть длинное описание порадка" FontSize="Large" TextColor="White" HorizontalOptions="FillAndExpand"/>
+
+            <Button Text="Открыть ссылку на подарок"></Button>
+
+            <Label Text="Остальные подарки" FontSize="Default" TextColor="White" BackgroundColor="Black" Padding="30,10,10,10" HorizontalTextAlignment="Start" HorizontalOptions="Start"/>
+            <ListView x:Name="PresetnsLimpleList" ItemsSource="{Binding Presents}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <Label Text="{Binding Name}" TextColor="White"></Label>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
